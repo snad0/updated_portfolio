@@ -1,0 +1,148 @@
+
+body{
+    /* background-color:black; */
+}
+
+/* css reset */
+*{
+    margin: 0px 0px;
+    padding: 0px 0px;
+
+    
+}
+html{
+    scroll-behavior: smooth;
+}
+
+/* css variables */
+:root{
+    --navbar-height: 60px;
+}
+
+#navbar{
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+    position: sticky;
+    top: 0px;
+    font-family: 'Varela Round', sans-serif;
+    
+}
+    /* logo and image */
+
+#logo img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 50px;
+    z-index: 2;
+    opacity: 1;
+}
+/* list styling */
+#navbar ul{
+    display: inline-block;
+    list-style: none;
+}
+#navbar::before{
+    content: "";
+    background-color: black;
+    top: 0px;
+    /* left: 0px; iski wajh se content jo hai wo andar ja raha tah */
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.3;
+}
+#navbar ul li{
+    
+    /* background-color: gray; */
+    list-style: none;
+    font-size: 1.3rem;
+    display: inline-block;
+
+    color: white;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+#navbar ul li a{
+    color: whitesmoke;
+    display: block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    text-decoration: none; /*to remove underline*/
+    font-size: 18px;
+}
+#navbar ul li a:hover{
+    color: black;
+    background-color: whitesmoke;
+    display: block;
+    padding: 2px 22px;
+    border-radius: 20px;
+    text-decoration: none; /*to remove underline*/
+}
+footer{
+    background-color: rgb(69 113 179 / 83%);
+    /* margin-top: 100px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+    height: 34px;
+}
+
+.center{
+    text-align: center;
+}
+
+
+/*CONTACT*/
+
+#Cont-container{
+
+    text-align: center;
+    background-color: blanchedalmond;
+    /* display: flex; */
+
+}
+.part{
+    display: flex;
+}
+#Cont-container h1{
+    margin: 50px 0 50px 0;
+
+
+
+}
+.contact{
+    display: flex;
+    width: 50%;
+    margin-top: 25px;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+.icon{
+    margin: 5px;
+    /* border: 2px solid black; */
+    border-radius: 10px;
+    padding: 20px 0 20px 0;
+}
+.social img{
+    width: 50px;
+}
+.email img{
+    width: 70px;
+}
+.social a {
+    margin: 50px;
+}
+.mail{
+    font-size: 1.5rem;
+    padding: 2px 0 20px 5px;
+
+}
+/* .email{
+    margin: 50px;
+    margin-top: 50px;
+}  */

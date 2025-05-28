@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohd Nadeem - Portfolio</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{{ url_for('static', filename='me.jpg') }}" alt="Mohd Nadeem" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
+                Mohd Nadeem
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-theme" id="theme-toggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Hi, I'm <span class="highlight">Mohd Nadeem</span></h1>
+                    <h2 class="h3 mb-4">Data Analyst & Python Developer</h2>
+                    <p class="lead mb-4">
+                        Detail-oriented Data Analyst with expertise in designing financial analytics solutions through end-to-end projects
+                        in credit risk modeling, customer churn prediction, and fraud detection. Skilled in SQL, Python, and Power BI for
+                        analyzing spending patterns, optimizing customer lifetime value (CLV), and delivering actionable insights
+                        through dashboards.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="{{ url_for('static', filename='Resume.pdf') }}" class="btn btn-primary me-3" download>
+                            <i class="fas fa-download me-2"></i>Download Resume
+                        </a>
+                        <a href="#contact" class="btn btn-outline-primary">Contact Me</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image">
+                        <img src="{{ url_for('static', filename='me.jpg') }}" alt="Mohd Nadeem" class="img-fluid rounded-circle">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="row">
+                <div class="col-12">
+                    <div class="skills-container">
+                        <div id="skills-chart" class="row g-4">
+                            <!-- Skills will be loaded dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects section-padding">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            
+            <!-- AI Projects -->
+            <div class="project-category mb-5">
+                <h3 class="mb-4">Artificial Intelligence</h3>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="project-card">
+                            <img src="{{ url_for('static', filename='007.png') }}" alt="Social Distancing Detection" class="card-img-top">
+                            <div class="card-body">
+                                <h4>Social Distancing & Mask Detection</h4>
+                                <p>AI-based system for monitoring social distancing and mask compliance</p>
+                                <a href="https://github.com/snad0/Social-Distancing-and-mask-detection" class="btn btn-primary" target="_blank">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="project-card">
+                            <img src="{{ url_for('static', filename='02.png') }}" alt="Plant Identification" class="card-img-top">
+                            <div class="card-body">
+                                <h4>Plant Identification</h4>
+                                <p>AI system for identifying different plant species</p>
+                                <a href="https://github.com/snad0/Plant-Identification-" class="btn btn-primary" target="_blank">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="project-card">
+                            <img src="{{ url_for('static', filename='parking security.png') }}" alt="Parking Security" class="card-img-top">
+                            <div class="card-body">
+                                <h4>AI Parking Security System</h4>
+                                <p>Automated parking management and security system</p>
+                                <a href="https://github.com/snad0/AI-Parking-security-System" class="btn btn-primary" target="_blank">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Projects -->
+            <div class="project-category mb-5">
+                <h3 class="mb-4">Analytics</h3>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="project-card">
+                            <img src="{{ url_for('static', filename='16.png') }}" alt="Power BI Dashboard" class="card-img-top">
+                            <div class="card-body">
+                                <h4>Power BI Dashboard</h4>
+                                <p>Interactive business intelligence dashboard</p>
+                                <a href="https://app.powerbi.com/groups/me/reports/45fe5a19-f9fe-461c-a999-6dd11541458a/ReportSection" class="btn btn-primary" target="_blank">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="project-card">
+                            <img src="{{ url_for('static', filename='tableau.png') }}" alt="Tableau Dashboard" class="card-img-top">
+                            <div class="card-body">
+                                <h4>Tableau Visualization</h4>
+                                <p>Data visualization and analytics dashboard</p>
+                                <a href="https://public.tableau.com/shared/J9HBMGS9Y?:display_count=n&:origin=viz_share_link" class="btn btn-primary" target="_blank">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Web Projects -->
+            <div class="project-category">
+                <h3 class="mb-4">Web Development</h3>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="project-card">
+                            <img src="{{ url_for('static', filename='8.png') }}" alt="E-commerce Website" class="card-img-top">
+                            <div class="card-body">
+                                <h4>E-commerce Website</h4>
+                                <p>Dynamic e-commerce platform with user authentication</p>
+                                <a href="https://nad-shop-web.herokuapp.com/" class="btn btn-primary" target="_blank">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="project-card">
+                            <img src="{{ url_for('static', filename='10.png') }}" alt="Business Website" class="card-img-top">
+                            <div class="card-body">
+                                <h4>Business Website</h4>
+                                <p>Professional business website with modern design</p>
+                                <a href="http://shmpl.co.in/" class="btn btn-primary" target="_blank">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Certificates</h2>
+            <div class="row g-4" id="certificates-container">
+                <!-- Certificates will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section-padding">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="contact-info text-center">
+                        <p class="mb-4">Feel free to reach out to me through any of these platforms:</p>
+                        <div class="social-links">
+                            <a href="mailto:nadeemsaifi497@gmail.com" class="social-link" target="_blank">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/snadeem97/" class="social-link" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/snad0" class="social-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2024 Mohd Nadeem. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 

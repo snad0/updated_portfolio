@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOhd Nadeem</title>
+    <link rel="stylesheet" href="../static/css/main.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div id="logo">
+            <img src="../static/me.jpg" alt="">
+
+        </div>
+
+    
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="#home">About</a>
+            </li>
+            <li>
+                <a href="#container">Project</a>
+            </li>
+            <li>
+                <a href="#Cont-container">Contact</a>
+            </li>
+        </ul>
+    </nav>
+  
+        
+
+    <section id="home">
+        <div id="fullimg">
+            <img src="../static/me.jpg" alt="">
+
+        </div>
+        <h1 class="Heading">{Mohd_Nadeem_Portfolio}.</h1>
+        <p class="description">
+            Detail-oriented Data Analyst with expertise in designing financial analytics solutions through end-to-end projects
+in credit risk modeling, customer churn prediction, and fraud detection.<br>
+            Skilled in SQL, Python, and Power BI for
+analyzing spending patterns, optimizing customer lifetime value (CLV), and delivering actionable insights
+through dashboards.<br> Passionate about translating complex data into strategies that
+enhance financial decision-making and customer retention.
+            <br>
+            <br>
+            
+            </p>
+        <br>
+        <h2>Download Resume</h2>
+        <div class="download">
+            <!-- <h3>Download Resume</h3> -->
+
+                <a href="../static/Resume.pdf" download>
+                    <img src="../static/doc.png" alt="Resume" >
+                </a>
+  
+
+        </div>
+        <p class="quote">
+            “Contact for Frelance work.”
+        </p>
+        <button class="btn">
+            <a href="#Cont-container">
+
+                Contact
+            </a>
+        </button>
+    </section>
+    <section id="Skills">
+
+        <h1>Skills</h1>
+        <div id="Sikll-Section">
+            <span class="skills__name">Python</span>            
+            <span class="skills__name">Flask</span>            
+            <span class="skills__name">SQL</span>
+
+            <span class="skills__name">Data Analytics</span>
+            <span class="skills__name">Microsoft Power BI </span>
+            <span class="skills__name">Tableau</span>
+            <span class="skills__name">Pandas</span>
+            <span class="skills__name">Matplotlib</span>
+            <span class="skills__name">Excel</span>
+            <span class="skills__name">VBA Macros</span>
+            <span class="skills__name">Machine Learning</span>
+            <span class="skills__name">Deep Learning</span>
+            <span class="skills__name">Computer vision</span>
+            <span class="skills__name">Heroku</span>
+
+        </div>
+ 
+
+    </section>
+
+    <div id="container">
+        <div id="project">
+            <h1>Project Work</h1>
+
+        </div>
+        <div class="box3">
+            <h1>Artificial Intelligence work</h1>
+            <div class="slider3">
+
+                <div class="slider" >
+                    <div class="slides" id="a">
+                     <!--radio buttons start-->
+                       <input type="radio" name="radio-btn" id="radio1">
+                       <input type="radio" name="radio-btn" id="radio2">
+                       <input type="radio" name="radio-btn" id="radio3">
+                       <input type="radio" name="radio-btn" id="radio4">
+                       <input type="radio" name="radio-btn" id="radio5">
+                       <input type="radio" name="radio-btn" id="radio6">
+                       <input type="radio" name="radio-btn" id="radio7">
+    
+                     <!--radio buttons end-->
+                  
+                     <!--slide images start-->
+                        <div class="slide first">
+                            <a href="https://github.com/snad0/Social-Distancing-and-mask-detection"> <img src="../static/007.png" alt="">  </a>
+                        </div>
+                        <div class="slide">
+                            <a href="https://github.com/snad0/Plant-Identification-"> <img src="../static/02.png" alt="">  </a>
+                        </div>
+                        <div class="slide">
+                            <a href="https://github.com/snad0/AI-Parking-security-System"> <img src="../static/parking security.png" alt="">  </a>
+                        </div>
+                        <div class="slide">
+                            <a href="https://nad-car-becho.herokuapp.com/"> <img src="../static/car.png" alt="">  </a>
+                        </div>
+                        <div class="slide">
+                            <a href="https://github.com/snad0/AI_Attandence_system"> <img src="../static/01.png" alt="">  </a>
+                        </div>
+                        <div class="slide">
+                            <a href="https://github.com/snad0/Movie-Recomendation-System"> <img src="../static/03.png" alt="">  </a>
+                        </div>
+                        <div class="slide">
+                            <a href="https://github.com/snad0/Potato-disease-detection"> <img src="../static/potato.png" alt="">  </a>
+                        </div>
+                     <!--slide images end-->
+                  
+                    </div>
+                  
+                   <!--manual navigation start-->
+                    <div class="navigation-manual" id="b">
+                      <label for="radio1" class="manual-btn"></label>
+                      <label for="radio2" class="manual-btn"></label>
+                      <label for="radio3" class="manual-btn"></label>
+                      <label for="radio4" class="manual-btn"></label>
+                      <label for="radio5" class="manual-btn"></label>
+                      <label for="radio6" class="manual-btn"></label>
+                      <label for="radio7" class="manual-btn"></label>
+                    </div>
+                   <!--manual navigation end-->
+                </div> 
+                <!--image slider end-->
+            </div>
+              
+
+
+        </div>
+        <div class="box2">
+            <h1>Analytics work</h1>
+            <div id="slider1">
+                <div id="sliderBox1">
+                    <figure>
+                        <a href="https://app.powerbi.com/groups/me/reports/45fe5a19-f9fe-461c-a999-6dd11541458a/ReportSection"> <img src="../static/16.png" alt="">  </a>
+                        <a href="https://github.com/snad0/Data-analytics"> <img src="../static/bi.png" alt="">  </a> 
+                        <a href="https://public.tableau.com/shared/J9HBMGS9Y?:display_count=n&:origin=viz_share_link"> <img src="../static/tableau.png" alt="">  </a> 
+
+
+                       
+                    </figure>
+                    
+            
+                </div>
+        
+            </div>
+
+        </div>
+        <div class="box1">
+            <h1>Static webistes</h1>
+            <div id="slider1">
+                <div id="sliderBox1">
+                    <figure>
+                        <a href="https://snad0.github.io/Food-website/"> <img src="../static/2.png" alt="">  </a>
+                        <a href="https://snad0.github.io/MyCricPoint/"> <img src="../static/1.png" alt="">  </a> 
+                        <a href="https://snad0.github.io/Fitness-web/">  <img src="../static/9.png" alt=""> </a>
+
+                       
+                    </figure>
+                    
+            
+                </div>
+        
+            </div>
+
+
+
+        </div>
+        <div class="box2">
+            <h1>Dynamic webistes</h1>
+            <div id="slider2">
+                <div id="sliderBox2">
+                    <figure>
+                        <a href="https://nad-shop-web.herokuapp.com/"> <img src="../static/8.png" alt="">  </a> 
+                        <a href="http://shmpl.co.in/"> <img src="../static/10.png" alt="">  </a>
+
+                       
+                    </figure>
+                    
+            
+                </div>
+        
+            </div>
+
+        </div>
+
+
+    </div>
+    <div id="certificate">
+        <div id="certificatehed">
+            <h1>
+                Certificates
+            </h1>
+        </div>
+
+        <div id="gallery">
+              
+              <div class="gallery">
+                <a target="_blank" href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/J.P.%20Morgan/R5iK7HMxJGBgaSbvk_J.P.%20Morgan_y3hTqggkY8A3WZWvm_1655660639169_completion_certificate.pdf">
+                  <img src="../static/forage.png" alt="Northern Lights" width="600" height="400">
+                </a>
+                <div class="desc">Software Engineering Virtual Experience
+                </div>
+                <div class="org">Forage
+                </div>
+              </div>
+              
+              <div class="gallery">
+                <a target="_blank" href="https://www.udemy.com/certificate/UC-3958675c-9e77-43c8-8b2d-c9ce19c61f38/">
+                  <img src="../static/Ensemble.jpg" alt="Mountains" width="600" height="400">
+                </a>
+                <div class="desc">Ensemble Techniques in machine learning
+    
+                </div>
+                <div class="org">Udemy
+                </div>
+              </div>
+              <div class="gallery">
+                <a target="_blank" href="https://www.udemy.com/certificate/UC-ac7238b2-9a11-4bbc-ab93-148c745728ac/">
+                  <img src="../static/Numpy.jpg" alt="Mountains" width="600" height="400">
+                </a>
+                <div class="desc">Data Manipulation in Python
+    
+                </div>
+                <div class="org">Udemy
+                </div>
+              </div>
+              <div class="gallery">
+                <a target="_blank" href="https://olympus1.mygreatlearning.com/course_certificate/KLVYTWFL">
+                  <img src="../static/Deep.jpg" alt="Mountains" width="600" height="400">
+                </a>
+                <div class="desc">Deep Learning with python
+    
+                </div>
+                <div class="org">Great Learning
+                </div>
+              </div>
+              <div class="gallery">
+                <a target="_blank" href="https://olympus1.mygreatlearning.com/course_certificate/OIBKBZON">
+                  <img src="../static/sql.jpg" alt="Mountains" width="600" height="400">
+                </a>
+                <div class="desc">SQL For Data Science
+    
+                </div>
+                <div class="org">Great Learning
+                </div>
+              </div>
+              <div class="gallery">
+                <a target="_blank" href="https://olympus1.mygreatlearning.com/course_certificate/SNEBEHKW">
+                  <img src="../static/power.jpg" alt="Mountains" width="600" height="400">
+                </a>
+                <div class="desc">Data Visualization with Power BI
+    
+                </div>
+                <div class="org">Great Learning
+                </div>
+              </div>
+              <div class="gallery">
+                <a target="_blank" href="https://www.hackerrank.com/certificates/68c2e9269781">
+                  <img src="../static/python1.png" alt="Mountains" width="600" height="400">
+                </a>
+                <div class="desc">Python
+                </div>
+                <div class="org">HackerRank
+                </div>
+              </div>
+    
+        </div>
+    </div>
+
+
+    <div id="Cont-container">
+
+        <h1>
+
+            Contact Me
+        </h1>
+        <div id="part">
+            <!-- <div class="contimg">
+                <img src="../static/cont2.jpg" alt="">
+            </div> -->
+
+            <div class="contact">
+    
+                <div class="icon">
+                    <i class="social"> 
+                        <a href="https://www.linkedin.com/in/snadeem97/" target="blank">
+                            <img src="../static/linkedin.png" alt="">
+                        </a>
+                        <a href="https://github.com/snad0" target="blank"><img src="../static/git.png" alt=""></a>
+                        <a href="https://wa.me/9871196241" target="blank"><img src="../static/wt.png" alt=""></a>
+                    </i>
+                </div>
+                <div class="icon">
+    
+                        <i class="email"> 
+                            <a href="" target="blank">
+                                <img src="../static/Gmail.svg" alt="">
+    
+            
+                            </a>
+                        </i>
+                        <a class="mail" href="">
+                                Nadeemsaifi497@gmail.com
+    
+                        </a>
+                        
+                </div>
+                
+    
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="center">
+           <p>
+
+               contact for any information
+           </p> 
+        </div>
+    </footer>
+
+<script>
+    var counter = 1;
+    setInterval(function(){
+    document.getElementById('radio' + counter).checked = true;
+    counter++;
+        if(counter > 7){
+            setTimeout('',1000)
+        counter = 1;
+        }
+    }, 5000);
+</script>
+    
+</body>
+</html> 
