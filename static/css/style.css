@@ -368,9 +368,53 @@ body {
 .hero h1 {
     color: white;
     animation: slideInLeft 1s ease-out;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     font-weight: 700;
     position: relative;
+    padding: 0.5rem 0;
+}
+
+.hero h1 .highlight {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    text-shadow: none;
+    position: relative;
+    display: inline-block;
+}
+
+.hero h1 .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.hero h1 .highlight:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Dark mode adjustments for hero title */
+[data-theme="dark"] .hero h1 {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] .hero h1 .highlight {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
 }
 
 .hero h2 {
@@ -450,6 +494,8 @@ body {
 [data-theme="dark"] .hero-buttons .btn-outline-primary:hover {
     background-color: white;
     color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
 /* Responsive adjustments for hero buttons */
@@ -500,6 +546,25 @@ body {
 .hero-image {
     text-align: center;
     position: relative;
+    animation: float 6s ease-in-out infinite;
+}
+
+.hero-image::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, 
+        rgba(77, 182, 172, 0.2) 0%,
+        rgba(30, 136, 229, 0.15) 50%,
+        rgba(26, 35, 126, 0.1) 100%);
+    border-radius: 50%;
+    filter: blur(20px);
+    z-index: -1;
+    animation: pulse 4s ease-in-out infinite;
 }
 
 .hero-image img {
@@ -508,43 +573,77 @@ body {
     border-radius: 50%;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
     border: 5px solid rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s ease;
+    transition: all 0.5s ease;
     background-color: white;
+    position: relative;
+    z-index: 1;
 }
 
 .hero-image img:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) rotate(5deg);
     border-color: var(--primary-color);
+    box-shadow: 0 0 40px rgba(77, 182, 172, 0.4);
 }
 
-/* Dark mode adjustments for hero section */
-[data-theme="dark"] .hero {
-    background: linear-gradient(135deg, 
-        rgba(26, 35, 126, 0.97) 0%, 
-        rgba(30, 136, 229, 0.97) 50%,
-        rgba(77, 182, 172, 0.97) 100%);
+/* Dark mode adjustments for hero image */
+[data-theme="dark"] .hero-image::before {
+    background: radial-gradient(circle, 
+        rgba(77, 182, 172, 0.15) 0%,
+        rgba(30, 136, 229, 0.1) 50%,
+        rgba(26, 35, 126, 0.05) 100%);
 }
 
-[data-theme="dark"] .hero-slide {
-    filter: brightness(0.3) contrast(1.2) blur(2px);
+[data-theme="dark"] .hero-image img {
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
-[data-theme="dark"] .hero .col-lg-6:first-child::before {
-    background: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+[data-theme="dark"] .hero-image img:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 40px rgba(77, 182, 172, 0.3);
 }
 
-/* Responsive adjustments for the blur effect */
+/* Animation keyframes */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    .hero .col-lg-6:first-child::before {
-        top: -10px;
-        left: -10px;
-        right: -10px;
-        bottom: -10px;
-        backdrop-filter: blur(6px);
-        -webkit-backdrop-filter: blur(6px);
+    .hero-image {
+        margin-top: 2rem;
+    }
+    
+    .hero-image img {
+        max-width: 200px;
+    }
+    
+    .hero-image::before {
+        width: 220px;
+        height: 220px;
     }
 }
 
@@ -796,6 +895,9 @@ body {
 
 .overlay-details {
     margin-bottom: 1rem;
+    max-height: 150px;
+    overflow-y: auto;
+    padding-right: 10px;
 }
 
 .overlay-details p {
@@ -803,6 +905,46 @@ body {
     font-size: 0.95rem;
     margin-bottom: 0.75rem;
     line-height: 1.6;
+}
+
+/* Custom Scrollbar Styles */
+.overlay-details::-webkit-scrollbar {
+    width: 6px;
+}
+
+.overlay-details::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.overlay-details::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.overlay-details::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Dark mode adjustments for scrollbar */
+[data-theme="dark"] .overlay-details::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .overlay-details::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .overlay-details::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .overlay-details {
+        max-height: 120px;
+    }
 }
 
 .overlay-tech {

@@ -58,13 +58,13 @@ def contact():
 def get_skills():
     skills = [
         {"name": "Python", "level": 90, "image": "pythonlogo.png"},
-        {"name": "SQL", "level": 85, "image": "sqllogo.png"},
+        {"name": "SQL", "level": 95, "image": "sqllogo.png"},
         {"name": "Machine Learning", "level": 85, "image": "mllogo.png"},
-        {"name": "Power BI", "level": 85, "image": "powerbilogo.png"},
+        {"name": "Power BI", "level": 90, "image": "powerbilogo.png"},
         {"name": "Tableau", "level": 80, "image": "tableaulogo.png"},
         {"name": "Deep Learning", "level": 80, "image": "Deeplearinnglogo.png"},
         {"name": "Data Analytics", "level": 90, "image": "numpylogo.jpg"},
-        {"name": "Web Development", "level": 85, "image": "webdevlogo.png"}
+        {"name": "Web Development", "level": 70, "image": "webdevlogo.png"}
     ]
     return jsonify(skills)
 
