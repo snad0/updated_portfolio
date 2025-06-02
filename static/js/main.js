@@ -71,11 +71,11 @@ async function loadSkills() {
                     toggleIcon.classList.add('fa-chevron-up');
                     isExpanded = true;
                 } else {
-                    // Hide extra skills
+                    // Remove extra skills
                     const skillsToRemove = document.querySelectorAll('.skill-item');
                     skillsToRemove.forEach((skill, index) => {
                         if (index >= currentSkills) {
-                            skill.remove();
+                            skill.parentElement.remove(); // Remove the parent div as well
                         }
                     });
                     toggleText.textContent = 'Show More';
@@ -96,13 +96,18 @@ function displaySkills(start, end) {
 
     skillsToShow.forEach(skill => {
         const skillDiv = document.createElement('div');
-        skillDiv.className = 'col-md-3 col-sm-6';
+        skillDiv.className = 'col-md-3 col-6';
         skillDiv.innerHTML = `
             <div class="skill-item">
-                <img src="/static/${skill.image}" alt="${skill.name}" class="skill-icon">
-                <h3>${skill.name}</h3>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: ${skill.level}%"></div>
+                <div class="skill-front">
+                    <img src="/static/${skill.image}" alt="${skill.name}" class="skill-icon">
+                    <h3>${skill.name}</h3>
+                </div>
+                <div class="skill-back">
+                    <h3>${skill.name}</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: ${skill.level}%"></div>
+                    </div>
                 </div>
             </div>
         `;
@@ -130,15 +135,47 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Initialize navbar state
+document.addEventListener('DOMContentLoaded', () => {
+    const navbar = document.querySelector('.navbar');
+    const heroSection = document.querySelector('.hero');
+    const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+    
+    // Set initial state
+    if (window.scrollY < heroBottom - 100) {
+        navbar.classList.add('over-hero');
+    } else {
+        navbar.classList.remove('over-hero');
+    }
+    
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+        navbar.style.padding = '0.5rem 0';
+    } else {
+        navbar.classList.remove('scrolled');
+        navbar.style.padding = '1rem 0';
+    }
+});
+
 // Navbar Scroll Effect
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
+    const heroSection = document.querySelector('.hero');
+    const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+    
     if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
         navbar.style.padding = '0.5rem 0';
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
     } else {
+        navbar.classList.remove('scrolled');
         navbar.style.padding = '1rem 0';
-        navbar.style.boxShadow = 'none';
+    }
+    
+    // Check if navbar is over hero section
+    if (window.scrollY < heroBottom - 100) {
+        navbar.classList.add('over-hero');
+    } else {
+        navbar.classList.remove('over-hero');
     }
 });
 
@@ -209,6 +246,24 @@ async function loadCertificates() {
         console.error('Error loading certificates:', error);
     }
 }
+
+// Hero Background Slideshow
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.hero-slide');
+    let currentSlide = 0;
+
+    // Set first slide as active
+    slides[0].classList.add('active');
+
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+
+    // Change slide every 5 seconds
+    setInterval(nextSlide, 5000);
+});
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {

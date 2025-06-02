@@ -57,14 +57,14 @@ def contact():
 @app.route('/api/skills')
 def get_skills():
     skills = [
-        {"name": "Python", "level": 90, "image": "python.png"},
-        {"name": "SQL", "level": 85, "image": "sql.jpg"},
-        {"name": "Machine Learning", "level": 85, "image": "python1.png"},
-        {"name": "Power BI", "level": 85, "image": "bi.png"},
-        {"name": "Tableau", "level": 80, "image": "tableau.png"},
-        {"name": "Deep Learning", "level": 80, "image": "Deep.jpg"},
-        {"name": "Data Analytics", "level": 90, "image": "Numpy.jpg"},
-        {"name": "Web Development", "level": 85, "image": "python.png"}
+        {"name": "Python", "level": 90, "image": "pythonlogo.png"},
+        {"name": "SQL", "level": 85, "image": "sqllogo.png"},
+        {"name": "Machine Learning", "level": 85, "image": "mllogo.png"},
+        {"name": "Power BI", "level": 85, "image": "powerbilogo.png"},
+        {"name": "Tableau", "level": 80, "image": "tableaulogo.png"},
+        {"name": "Deep Learning", "level": 80, "image": "Deeplearinnglogo.png"},
+        {"name": "Data Analytics", "level": 90, "image": "numpylogo.jpg"},
+        {"name": "Web Development", "level": 85, "image": "webdevlogo.png"}
     ]
     return jsonify(skills)
 
