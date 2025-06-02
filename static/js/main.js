@@ -16,6 +16,13 @@ themeToggle.addEventListener('click', () => {
     body.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     updateThemeIcon(newTheme);
+
+    // Close the hamburger menu when theme is toggled
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    if (navbarCollapse.classList.contains('show')) {
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        navbarToggler.click();
+    }
 });
 
 function updateThemeIcon(theme) {
