@@ -98,6 +98,14 @@ def get_certificates():
             "link": "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/J.P.%20Morgan/R5iK7HMxJGBgaSbvk_J.P.%20Morgan_y3hTqggkY8A3WZWvm_1655660639169_completion_certificate.pdf"
         },
         {
+            "title": "Deloitte Australia Data Analytics Virtual Experience",
+            "issuer": "Deloitte Australia (Forage)",
+            "date": "June 2025",
+            "image": "Deloitte.png",
+            "skills": ["Data Analytics", "Data Visualization", "Business Insights", "Excel", "Client Communication"],
+            "link": "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_y3hTqggkY8A3WZWvm_1750846995531_completion_certificate.pdf"
+        },
+        {
             "title": "Data Visualization with Power BI",
             "issuer": "Great Learning",
             "date": "March 2022",
@@ -105,6 +113,7 @@ def get_certificates():
             "skills": ["Data Architecture", "Microsoft Power BI", "Visual Analytics", "Data Visualization", "Components of Power BI"],
             "link": "https://www.mygreatlearning.com/certificate/SNEBEHKW"
         }
+
     ]
     return jsonify(certificates)
 

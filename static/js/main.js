@@ -215,10 +215,14 @@ if (contactForm) {
 }
 
 // Load Certificates
+let allCertificates = [];
+let currentCertificates = 4; // Number of certificates to show initially
+let isCertificatesExpanded = false;
+
 async function loadCertificates() {
     try {
         const response = await fetch('/api/certificates');
-        const certificates = await response.json();
+        allCertificates = await response.json();
         
         const certificatesContainer = document.getElementById('certificates-container');
         if (!certificatesContainer) {
@@ -227,38 +231,89 @@ async function loadCertificates() {
         }
 
         certificatesContainer.innerHTML = '';
-        
-        certificates.forEach(cert => {
-            const certDiv = document.createElement('div');
-            certDiv.className = 'col-md-6 col-lg-3 mb-4';
-            certDiv.innerHTML = `
-                <div class="certificate-card">
-                    <div class="card-body">
-                        <img src="/static/${cert.image}" alt="${cert.issuer}" class="certificate-logo mb-3">
-                        <h5 class="card-title">${cert.title}</h5>
-                        <p class="card-text">
-                            <strong>${cert.issuer}</strong><br>
-                            Issued ${cert.date}
-                            ${cert.credential_id ? `<br>Credential ID: ${cert.credential_id}` : ''}
-                        </p>
-                        ${cert.skills.length > 0 ? `
-                            <div class="certificate-skills">
-                                <small class="text-muted">Skills: ${cert.skills.join(' · ')}</small>
-                            </div>
-                        ` : ''}
-                        ${cert.link ? `
-                            <a href="${cert.link}" class="btn btn-outline-primary mt-3" target="_blank">
-                                <i class="fas fa-external-link-alt me-2"></i>View Certificate
-                            </a>
-                        ` : ''}
-                    </div>
+        displayCertificates(0, currentCertificates);
+
+        // Add toggle indicator if there are more certificates
+        if (allCertificates.length > currentCertificates) {
+            const toggleContainer = document.createElement('div');
+            toggleContainer.className = 'col-12 text-center mt-4';
+            toggleContainer.innerHTML = `
+                <div class="certificates-toggle" id="certificates-toggle">
+                    <span class="toggle-text">Show More</span>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
                 </div>
             `;
-            certificatesContainer.appendChild(certDiv);
-        });
+            certificatesContainer.appendChild(toggleContainer);
+
+            document.getElementById('certificates-toggle').addEventListener('click', () => {
+                const toggleBtn = document.getElementById('certificates-toggle');
+                const toggleText = toggleBtn.querySelector('.toggle-text');
+                const toggleIcon = toggleBtn.querySelector('.toggle-icon');
+
+                if (!isCertificatesExpanded) {
+                    displayCertificates(currentCertificates, allCertificates.length);
+                    toggleText.textContent = 'Show Less';
+                    toggleIcon.classList.remove('fa-chevron-down');
+                    toggleIcon.classList.add('fa-chevron-up');
+                    isCertificatesExpanded = true;
+                } else {
+                    // Remove extra certificates
+                    const certsToRemove = document.querySelectorAll('.certificate-card');
+                    certsToRemove.forEach((cert, index) => {
+                        if (index >= currentCertificates) {
+                            cert.parentElement.remove();
+                        }
+                    });
+                    toggleText.textContent = 'Show More';
+                    toggleIcon.classList.remove('fa-chevron-up');
+                    toggleIcon.classList.add('fa-chevron-down');
+                    isCertificatesExpanded = false;
+                }
+            });
+        }
     } catch (error) {
         console.error('Error loading certificates:', error);
     }
+}
+
+function displayCertificates(start, end) {
+    const certificatesContainer = document.getElementById('certificates-container');
+    const certsToShow = allCertificates.slice(start, end);
+
+    certsToShow.forEach(cert => {
+        const certDiv = document.createElement('div');
+        certDiv.className = 'col-md-6 col-lg-3 mb-4';
+        certDiv.innerHTML = `
+            <div class="certificate-card">
+                <div class="card-body">
+                    <img src="/static/${cert.image}" alt="${cert.issuer}" class="certificate-logo mb-3">
+                    <h5 class="card-title">${cert.title}</h5>
+                    <p class="card-text">
+                        <strong>${cert.issuer}</strong><br>
+                        Issued ${cert.date}
+                        ${cert.credential_id ? `<br>Credential ID: ${cert.credential_id}` : ''}
+                    </p>
+                    ${cert.skills && cert.skills.length > 0 ? `
+                        <div class="certificate-skills">
+                            <small class="text-muted">Skills: ${cert.skills.join(' · ')}</small>
+                        </div>
+                    ` : ''}
+                    ${cert.link ? `
+                        <a href="${cert.link}" class="btn btn-outline-primary mt-3" target="_blank">
+                            <i class="fas fa-external-link-alt me-2"></i>View Certificate
+                        </a>
+                    ` : ''}
+                </div>
+            </div>
+        `;
+        // Insert before the toggle if it exists
+        const toggleContainer = document.getElementById('certificates-toggle')?.parentElement;
+        if (toggleContainer) {
+            certificatesContainer.insertBefore(certDiv, toggleContainer);
+        } else {
+            certificatesContainer.appendChild(certDiv);
+        }
+    });
 }
 
 // Hero Background Slideshow

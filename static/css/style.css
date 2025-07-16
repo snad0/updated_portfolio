@@ -1982,368 +1982,6 @@ body {
 .skill-item:nth-child(3) { animation-delay: 0.3s; }
 .skill-item:nth-child(4) { animation-delay: 0.4s; }
 
-/* Theme Toggle Button */
-.btn-theme {
-    background: none;
-    border: none;
-    color: var(--text-color);
-    font-size: 1.2rem;
-    cursor: pointer;
-    padding: 0.5rem;
-    transition: var(--transition);
-}
-
-.btn-theme:hover {
-    color: var(--primary-color);
-}
-
-/* Skill Items */
-.skill-item {
-    text-align: center;
-    padding: 1.25rem;
-    background: linear-gradient(135deg, var(--section-bg) 0%, rgba(77, 182, 172, 0.15) 100%);
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(77, 182, 172, 0.2);
-    transition: var(--transition);
-    height: 180px;
-    margin: 0.5rem;
-    position: relative;
-    perspective: 1000px;
-    cursor: pointer;
-    transform-style: preserve-3d;
-    border: 1px solid rgba(77, 182, 172, 0.2);
-}
-
-.skill-front, .skill-back {
-    transition: all 0.6s ease;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    backface-visibility: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 1.25rem;
-    border-radius: 10px;
-}
-
-.skill-front {
-    transform: rotateY(0deg);
-    background: linear-gradient(135deg, var(--section-bg) 0%, rgba(77, 182, 172, 0.15) 100%);
-}
-
-.skill-back {
-    opacity: 0;
-    transform: rotateY(180deg);
-    background: linear-gradient(135deg, var(--section-bg) 0%, rgba(77, 182, 172, 0.2) 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-}
-
-.skill-item:hover {
-    box-shadow: 0 8px 15px rgba(77, 182, 172, 0.3);
-    transform: translateY(-5px);
-}
-
-.skill-item:hover .skill-front {
-    transform: rotateY(180deg);
-}
-
-.skill-item:hover .skill-back {
-    opacity: 1;
-    transform: rotateY(0deg);
-}
-
-.skill-icon {
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
-    margin-bottom: 1rem;
-}
-
-.skill-item h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.75rem;
-    line-height: 1.2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-}
-
-.skill-bar {
-    width: 90%;
-    height: 10px;
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    overflow: hidden;
-    margin: 0.75rem auto;
-}
-
-.skill-progress {
-    height: 100%;
-    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-    border-radius: 5px;
-    transition: width 1s ease-in-out;
-}
-
-/* Dark mode adjustments */
-[data-theme="dark"] .skill-item {
-    background-color: var(--card-bg);
-}
-
-[data-theme="dark"] .skill-front,
-[data-theme="dark"] .skill-back {
-    background-color: var(--card-bg);
-}
-
-[data-theme="dark"] .skill-bar {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Responsive adjustments for skills */
-@media (max-width: 768px) {
-    .skill-item {
-        height: 160px;
-        padding: 1rem;
-        margin: 0.35rem;
-    }
-    
-    .skill-front, .skill-back {
-        padding: 1rem;
-    }
-    
-    .skill-icon {
-        width: 40px;
-        height: 40px;
-        margin-bottom: 0.75rem;
-    }
-    
-    .skill-item h3 {
-        font-size: 1rem;
-    }
-
-    .skill-bar {
-        width: 85%;
-        height: 8px;
-        margin: 0.5rem auto;
-    }
-}
-
-/* Certificate Cards */
-.certificate-card {
-    background-color: var(--card-bg);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(77, 182, 172, 0.15);
-    transition: var(--transition);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid rgba(77, 182, 172, 0.2);
-}
-
-.certificate-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(77, 182, 172, 0.3);
-    border-color: var(--primary-color);
-}
-
-.certificate-card .card-body {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    background: linear-gradient(135deg, var(--card-bg) 0%, rgba(77, 182, 172, 0.08) 100%);
-}
-
-.certificate-logo {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    margin-bottom: 1rem;
-    align-self: center;
-    padding: 0.5rem;
-    background-color: rgba(77, 182, 172, 0.15);
-    border-radius: 50%;
-    transition: var(--transition);
-}
-
-.certificate-card:hover .certificate-logo {
-    background-color: rgba(77, 182, 172, 0.25);
-    transform: scale(1.05);
-}
-
-.certificate-card .card-title {
-    color: var(--text-color);
-    font-size: 1.1rem;
-    margin-bottom: 0.75rem;
-    font-weight: 600;
-    line-height: 1.4;
-    min-height: 3.1em;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.certificate-card .card-text {
-    color: var(--text-color);
-    font-size: 0.9rem;
-    margin-bottom: 0.75rem;
-    line-height: 1.5;
-}
-
-.certificate-skills {
-    margin-top: auto;
-    padding-top: 0.75rem;
-    border-top: 1px solid rgba(77, 182, 172, 0.2);
-}
-
-.certificate-skills small {
-    color: var(--primary-color);
-    font-size: 0.8rem;
-    line-height: 1.4;
-    display: block;
-}
-
-.certificate-card .btn {
-    margin-top: 1rem;
-    align-self: flex-start;
-    background-color: var(--primary-color);
-    border: none;
-    color: white;
-    transition: var(--transition);
-}
-
-.certificate-card .btn:hover {
-    background-color: var(--hover-color);
-    transform: translateY(-2px);
-}
-
-/* Dark mode adjustments for certificates */
-[data-theme="dark"] .certificate-card {
-    background-color: var(--card-bg);
-    border-color: rgba(144, 202, 249, 0.2);
-    box-shadow: 0 4px 6px rgba(144, 202, 249, 0.15);
-}
-
-[data-theme="dark"] .certificate-card:hover {
-    border-color: var(--primary-color);
-    box-shadow: 0 8px 15px rgba(144, 202, 249, 0.25);
-}
-
-[data-theme="dark"] .certificate-card .card-body {
-    background: linear-gradient(135deg, var(--card-bg) 0%, rgba(144, 202, 249, 0.08) 100%);
-}
-
-[data-theme="dark"] .certificate-logo {
-    background-color: rgba(144, 202, 249, 0.15);
-}
-
-[data-theme="dark"] .certificate-card:hover .certificate-logo {
-    background-color: rgba(144, 202, 249, 0.25);
-}
-
-[data-theme="dark"] .certificate-skills {
-    border-top-color: rgba(144, 202, 249, 0.2);
-}
-
-/* Responsive adjustments for certificates */
-@media (max-width: 768px) {
-    .certificate-card .card-title {
-        min-height: auto;
-        -webkit-line-clamp: 3;
-    }
-    
-    .certificate-card .card-body {
-        padding: 1.25rem;
-    }
-    
-    .certificate-logo {
-        width: 60px;
-        height: 60px;
-    }
-}
-
-/* Animation for skill items */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.skill-item {
-    animation: fadeInUp 0.6s ease-out forwards;
-}
-
-.skill-item:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.skill-item:nth-child(3) {
-    animation-delay: 0.4s;
-}
-
-.skill-item:nth-child(4) {
-    animation-delay: 0.6s;
-}
-
-/* Skills Toggle */
-.skills-toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    color: var(--primary-color);
-    font-weight: 500;
-    transition: var(--transition);
-    border-radius: 20px;
-    background-color: var(--section-bg);
-}
-
-.skills-toggle:hover {
-    background-color: var(--primary-color);
-    color: white;
-    transform: translateY(-2px);
-}
-
-.toggle-icon {
-    transition: transform 0.3s ease;
-}
-
-.skills-toggle:hover .toggle-icon {
-    transform: translateY(2px);
-}
-
-/* Remove old Load More button styles */
-#load-more-skills {
-    display: none;
-}
-
-/* Skill Items Animation */
-.skill-item {
-    animation: fadeInUp 0.6s ease-out forwards;
-    opacity: 0;
-}
-
-.skill-item:nth-child(1) { animation-delay: 0.1s; }
-.skill-item:nth-child(2) { animation-delay: 0.2s; }
-.skill-item:nth-child(3) { animation-delay: 0.3s; }
-.skill-item:nth-child(4) { animation-delay: 0.4s; }
-
 /* When navbar is over other sections */
 .navbar:not(.over-hero) {
     background-color: rgba(255, 255, 255, 0.95);
@@ -2462,4 +2100,43 @@ body {
 [data-theme="dark"] .certificate-skills small {
     color: var(--primary-color);
     opacity: 0.9;
+}
+
+/* Certificates Toggle Button */
+.certificates-toggle {
+    display: inline-block;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.75rem 2.5rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px rgba(30, 136, 229, 0.08);
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 1rem;
+    user-select: none;
+}
+.certificates-toggle .toggle-icon {
+    margin-left: 0.5rem;
+    transition: var(--transition);
+}
+.certificates-toggle:hover {
+    background: var(--hover-color);
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(38, 166, 154, 0.15);
+}
+.certificates-toggle:hover .toggle-icon {
+    color: #fff;
+}
+[data-theme="dark"] .certificates-toggle {
+    background: var(--secondary-color);
+    color: #121212;
+    box-shadow: 0 2px 8px rgba(77, 182, 172, 0.08);
+}
+[data-theme="dark"] .certificates-toggle:hover {
+    background: var(--hover-color);
+    color: #121212;
+    box-shadow: 0 4px 16px rgba(128, 203, 196, 0.15);
 } 
